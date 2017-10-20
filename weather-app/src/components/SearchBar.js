@@ -12,7 +12,7 @@ class SearchBar extends Component {
     this.onSubmit = this.onSubmit.bind(this);
 
   }
-
+  // controlled input
   handleChange(event) {
     event.preventDefault();
     this.setState({
@@ -23,7 +23,7 @@ class SearchBar extends Component {
       }
     });
   }
-
+  // submitting instead of clicking a result
   onSubmit(event) {
     event.preventDefault();
     console.log(this.state.inputValue);
@@ -32,7 +32,7 @@ class SearchBar extends Component {
       inputValue: ''
     });
   }
-
+  
   render() {
     return (
       <div>

@@ -8,7 +8,7 @@ class SearchResults extends Component {
 
     this.onClick = this.onClick.bind(this);
   }
-
+  // clicking a result submits a search for it
   onClick(event) {
     const placeId = event.target.dataset.placeid;
     const name = event.target.dataset.text;

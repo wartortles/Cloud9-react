@@ -17,7 +17,7 @@ class App extends Component {
     this.saveLocation = this.saveLocation.bind(this);
     this.searchWithInput = this.searchWithInput.bind(this);
   }
-
+  // populate autofilled search results
   getResults(input) {
     if (input.length === 0) {
       this.setState({ results: [] }, () => console.log(this.state.results));
@@ -27,13 +27,13 @@ class App extends Component {
       })
     }
   }
-
+  // save a location by clicking on it
   saveLocation(placeId, name) {
     axios.post(`http://localhost:8080/search/geocode/${placeId}`, { name: name }).then(response => {
       this.setState({ results: [] });
       })
   }
-
+  // search for an save a location by text entry
   searchWithInput(input) {
     axios.get(`http://localhost:8080/search/single/${input}`).then(response => {
       this.setState({ results: '' }, () => console.log(this.state.results));
