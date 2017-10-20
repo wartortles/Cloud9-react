@@ -47,66 +47,20 @@ componentDidMount() {
 
 linkToId(event, weatherId) {
 	this.props.goToId(weatherId)
-}
-
-forecast(data) {
-
-	//console.log("YO!");
-	//console.log("===================");
-	//console.log(data);
-	//console.log("===================");
-	//const results = data.map
-
-	// const mappedItems = data.weatherData.map((weather, index) => {
-	// 	return(<div key={index.toString()}>
-	// 	<p>weather.currently.icon</p>
- //  	<h1>weather.currently.temperature</h1>
-	// 	<p>weather.daily.data.temperatureHigh</p>
-	// 	<p>weather.daily.data.temperatureLow</p>
-	// 	</div>)
-
-	// })
-
-	// return mappedItems;
-
-	// console.log(`THIS IS THE weather data: ${data}`)
 	
-	// const onClick = event => {
-	// 	event.preventDefault();
-	// 	this.linkToId(event, id);
-	// };
+	}
 
-	// return (
-	// 		<div className="tile-data">
-	// 		<h2>Los Angeles, CA, United States</h2>
- //          <a href={`weather/${id}`} onClick={onClick}>
- //            {icon}
- //          </a>
- //          <h1>{temperature}</h1>
- //        <span className="low-high">
- //          <p>
- //            {low} {high}
- //          </p>
- //        </span>
- //     </div>
- //    );
- //  }
-}
 
 
 render() {
-	// console.log(`RENDERING WEATHER DATA (this.state): ${this.state}`)
-	//const locations = this.forecast(this.state.locations);
 
 	return(
 		<div>
-
 			{this.state.locations}
 		</div>
 
-
 		);
-}
+	}
 }
 
 
