@@ -32,13 +32,13 @@ class SearchBar extends Component {
       inputValue: ''
     });
   }
-  
+
   render() {
     return (
       <div>
-        <form className="search-bar" onSubmit={this.onSubmit}>
+        <form className='search-form' onSubmit={this.onSubmit}>
 
-          <input type='text' placeholder='search for a location' value={this.state.inputValue} onChange={this.handleChange}/>
+          <input className='search-bar' type='text' placeholder='search for a location' value={this.state.inputValue} onChange={this.handleChange}/>
 
         </form>
 
