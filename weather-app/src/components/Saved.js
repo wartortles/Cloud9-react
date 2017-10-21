@@ -6,18 +6,16 @@ class Saved extends Component {
 		super(props)
 
 		this.state = {
-			search: "",
-			locations: [],
-			results: []
+			locations: []
 		}
 
 		this.linkToId = this.linkToId.bind(this);
-		this.forecast = this.forecast.bind(this);
+		
 	}
 
 
 componentDidMount() {
-	//console.log("YO FROM DID MOUNT!");
+	//console.log("THIS DID MOUNT!");
 	axios.get('http://localhost:8080/weather')
 	.then(response => {
 		console.log(`Mount: `, response.data)
@@ -29,10 +27,10 @@ componentDidMount() {
 			const low = elem.daily.data[0].temperatureLow;
 			return (
 					<div data-id={response.data.locations[index].id} key={response.data.weatherData.indexOf(elem)}>
-						<div>{icon}</div>
-						<div>{temp}</div>
-						<div>{high}</div>
-						<div>{low}</div>
+						<p>{icon}</p>
+						<p>{temp}</p>
+						<p>{low}</p>
+						<p>{high}</p>
 					</div>
 			)
 		});
@@ -46,16 +44,15 @@ componentDidMount() {
 }
 
 linkToId(event, weatherId) {
-	this.props.goToId(weatherId)
-	
+	event.preventDefault();
+	this.props.linkToPage(weatherId)
 	}
-
 
 
 render() {
 
 	return(
-		<div>
+		<div className="saved-tiles" onClick={this.linkToId}>
 			{this.state.locations}
 		</div>
 
