@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import Saved from './Components/Saved';
-import Create from './Components/Create';
 import SearchBar from './Components/SearchBar';
 import SearchResults from './Components/SearchResults';
-import ShowPage from './Components/ShowPage';
+import DetailedView from './Components/DetailedView';
 import axios from 'axios';
 
 class App extends Component {
@@ -23,6 +22,8 @@ class App extends Component {
     this.getResults = this.getResults.bind(this);
     this.saveLocation = this.saveLocation.bind(this);
     this.searchWithInput = this.searchWithInput.bind(this);
+    // this.delete = this.delete.bind(this);
+    this.onDelete = this.onDelete.bind(this);
 	};
 
 
@@ -45,6 +46,36 @@ addNew(event) {
 		mode: "createNew"
 	})
 }
+
+//  delete(results){
+//     console.log(`DELETED:, ${results}`);
+//     axios.delete(`http://localhost:8080/weather/${results.id}`)
+//       .then(res => {
+//         this.setState(state => {
+//           state.results = state.results.filter(s => s.id !== results.id);
+//           state.mode = 'viewAll';
+          
+//           return prev;
+//         });
+//      })
+// }
+
+ onDelete(id) {
+        axios.delete('http://localhost:8080/weather')
+            .then((data) => {
+                let weatherData = this.state.weatherData.filter((post) => {
+                    return id !== post.id;
+                });
+
+                this.setState(state => {
+                    state.weatherData = weatherData;
+                    return state;
+                });
+            })
+            .catch((err) => {
+                console.error('err', err);
+            });
+    }
 
 goToSearch() {
 	this.setState({
@@ -84,11 +115,9 @@ let content;
 		if (mode === "viewAll") {
 			content = <Saved linkToPage={this.linkToPage} addNew={this.addNew} goToSearch={this.goToSearch} />;
 		} else if (mode === "searchAll") {
-			content = <SearchBar linkToAll={this.linkToAll} />
-		} else if (mode === "createNew") {
-			content = <Create linkToAll={this.linkToAll}/>
+			content = <SearchBar linkToAll={this.linkToAll} /> 
 		} else if (mode === "weatherPage") {
-			content = <ShowPage id={this.state.weatherId} linkToAll={this.linkToAll} />
+			content = <DetailedView id={this.state.weatherId} linkToAll={this.linkToAll} />
 		}
 
     return (
