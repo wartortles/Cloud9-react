@@ -28,9 +28,7 @@ class SearchBar extends Component {
     event.preventDefault();
     console.log(this.state.inputValue);
     this.props.searchWithInput(this.state.inputValue);
-    this.setState({
-      inputValue: ''
-    });
+    this.setState({inputValue: ''});
   }
 
   render() {
