@@ -43,7 +43,7 @@ margin: 0 auto;
   height: 55px;
   float: right;
   z-index: 3;
-  right: 50px;  
+  right: 50px;
   bottom: 50px;
   position: fixed;
   cursor: pointer;
@@ -66,7 +66,7 @@ margin: 0 auto;
   font-weight: 300;
   text-align: center;
   color: #b0bec5;
-  line-height: 40px; 
+  line-height: 40px;
 }
 .viewAll{
   background-color: #36474f;
@@ -82,7 +82,7 @@ margin: 0 auto;
   justify-content: flex-start;
   margin: 0 auto;
   max-width: 900px;
-  
+
 }
 .flex-item {
   cursor: pointer;
@@ -95,7 +95,7 @@ margin: 0 auto;
   margin: 10px;
   color: white;
   /*justify-content: flex-start;*/
- 
+
 }
 .tileInfo{
   position: relative;
@@ -103,7 +103,7 @@ margin: 0 auto;
   height: 100%;
   margin: 0 auto;
   text-align: center;
-  
+
 }
 .titleViewAll{
   text-align: center;
@@ -116,7 +116,7 @@ margin: 0 auto;
   font-size: 12px;
   font-weight: bold;
   padding-top: 13px;
-  
+
 }
 .iconViewAll{
 margin: 0 auto;
@@ -208,7 +208,7 @@ li.flex-item input.delete {
 }
 .row1col1{
   width: 200px;
-  
+
    text-align: center;
    align-self: center;
 }
@@ -230,7 +230,7 @@ li.flex-item input.delete {
   margin: 10px;
  font-family: 'Roboto', sans-serif;
   }
-.days{ 
+.days{
 width: 2px;
   height: 380px;
   opacity: 0.2;
@@ -290,8 +290,8 @@ background-color: #F6963F;
 }
 
 .search-div {
-  top: 33%;
-  left: 32%;
+  top: 33vh;
+  left: 36vw;
   position: fixed;
   font-family: 'Roboto', sans-serif;
   box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.5);
@@ -302,7 +302,7 @@ background-color: #F6963F;
   border-bottom: 1px solid white;
   background-color: #19a69a;
   color: white;
-  width: 310px;
+  width: 340px;
   height: 20px;
   padding: 5px;
   font-family: 'Roboto', sans-serif;
@@ -330,7 +330,7 @@ background-color: #F6963F;
   background-color: white;
   border-top: 1px solid gray;
   padding: 10px 5px;
-  width: 350px;
+  width: 370px;
   font-size: 14px;
 }
 
@@ -339,3 +339,11 @@ background-color: #F6963F;
   cursor: pointer;
 }
 
+.wartortle {
+  top: 33vh;
+  left: 41vw;
+  color: #7dcbc4;
+  position: fixed;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+}
