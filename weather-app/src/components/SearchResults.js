@@ -19,7 +19,7 @@ class SearchResults extends Component {
   render() {
     console.log(this.props.results);
     return (
-      <div>
+      <div className='search-results'>
         {this.props.results.map((result, i) =>
           <div href='/'
             key={i}
