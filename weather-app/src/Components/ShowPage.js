@@ -6,6 +6,7 @@ class ShowPage extends Component {
   	super(props)
 
   }
+  
 render() {
 	return(
 		<div>

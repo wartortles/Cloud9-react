@@ -9,8 +9,8 @@ class Saved extends Component {
 			locations: []
 		}
 
-		this.linkToId = this.linkToId.bind(this);
-		
+		this.onClick = this.onClick.bind(this);
+
 	}
 
 
@@ -22,15 +22,17 @@ componentDidMount() {
 
 		const result = response.data.weatherData.map((elem, index) => {
 			const icon = elem.currently.icon;
-			const temp = elem.currently.temperature;
-			const high = elem.daily.data[0].temperatureHigh;
-			const low = elem.daily.data[0].temperatureLow;
+			const temp = Math.round(elem.currently.temperature);
+			const high = Math.round(elem.daily.data[0].temperatureHigh);
+			const low = Math.round(elem.daily.data[0].temperatureLow);
+			const name = response.data.locations[index].name
 			return (
-					<div data-id={response.data.locations[index].id} key={response.data.weatherData.indexOf(elem)}>
-						<p>{icon}</p>
-						<p>{temp}</p>
-						<p>{low}</p>
-						<p>{high}</p>
+					<div data-id={response.data.locations[index].id} key={response.data.weatherData.indexOf(elem)} onClick={this.onClick}>
+						<h3 data-id={response.data.locations[index].id}>{name}</h3>
+						<p data-id={response.data.locations[index].id}>{icon}</p>
+						<p data-id={response.data.locations[index].id}>{temp}</p>
+						<p data-id={response.data.locations[index].id}>{low}</p>
+						<p data-id={response.data.locations[index].id}>{high}</p>
 					</div>
 			)
 		});
@@ -39,20 +41,21 @@ componentDidMount() {
 
 		this.setState({
 			locations: result
-		})
+		}, () => {console.log(this.state.locations)})
 	});
 }
 
-linkToId(event, weatherId) {
-	event.preventDefault();
-	this.props.linkToPage(weatherId)
+onClick(event) {
+ 	event.preventDefault();
+	this.props.linkToPage(event.target.dataset.id);
+	console.log(event.target.dataset.id);
 	}
 
 
 render() {
 
 	return(
-		<div className="saved-tiles" onClick={this.linkToId}>
+		<div className="saved-tiles">
 			{this.state.locations}
 		</div>
 

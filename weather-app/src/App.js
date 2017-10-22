@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-import Saved from './Components/Saved';
-import Create from './Components/Create';
-import SearchBar from './Components/SearchBar';
-import SearchResults from './Components/SearchResults';
-import ShowPage from './Components/ShowPage';
+import Saved from './components/Saved';
+//import Create from './Components/Create';
+import SearchBar from './components/SearchBar';
+import SearchResults from './components/SearchResults';
+import ShowPage from './components/ShowPage';
 import axios from 'axios';
 
 class App extends Component {
@@ -18,7 +18,7 @@ class App extends Component {
 
 		this.linkToAll = this.linkToAll.bind(this);
 		this.linkToPage = this.linkToPage.bind(this);
-		this.addNew = this.addNew.bind(this);	
+		this.addNew = this.addNew.bind(this);
 		this.goToSearch = this.goToSearch.bind(this);
     this.getResults = this.getResults.bind(this);
     this.saveLocation = this.saveLocation.bind(this);
@@ -85,8 +85,6 @@ let content;
 			content = <Saved linkToPage={this.linkToPage} addNew={this.addNew} goToSearch={this.goToSearch} />;
 		} else if (mode === "searchAll") {
 			content = <SearchBar linkToAll={this.linkToAll} />
-		} else if (mode === "createNew") {
-			content = <Create linkToAll={this.linkToAll}/>
 		} else if (mode === "weatherPage") {
 			content = <ShowPage id={this.state.weatherId} linkToAll={this.linkToAll} />
 		}
@@ -94,14 +92,14 @@ let content;
     return (
 
       <div className="App">
-
-      {content}
       <br />
       <h1>WEATHER APP</h1>
 
+      {content}
 
-         <SearchBar getResults={this.getResults} searchWithInput={this.searchWithInput}/> <br/>
-        <SearchResults saveLocation={this.saveLocation} results={this.state.results}/> 
+
+         {/* <SearchBar getResults={this.getResults} searchWithInput={this.searchWithInput}/> <br/>
+        <SearchResults saveLocation={this.saveLocation} results={this.state.results}/> */}
 
       </div>
     );
