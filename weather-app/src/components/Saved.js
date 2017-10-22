@@ -67,7 +67,7 @@ componentDidMount() {
                 }
             }
             else if(icon === "snow"){
-                icon= snow,
+                icon= snow;
                 style ={
                     backgroundColor: '#b048c1',
                 }
@@ -76,7 +76,7 @@ componentDidMount() {
                 }
             }
             else if(icon === "sleet"){
-                icon= sleet,
+                icon= sleet;
                 style= {
                     backgroundColor: '#D0D7DE' ,
                 }
@@ -85,7 +85,7 @@ componentDidMount() {
                 }
             }
             else if(icon === "wind"){
-                icon= wind,
+                icon= wind;
                 style= {
                     backgroundColor: '#87DBBA', 
                 }
@@ -94,7 +94,7 @@ componentDidMount() {
                 }
             }
             else if(icon === "fog"){
-                icon= fog,
+                icon= fog;
                 style= {
                 backgroundColor: '#90A4AD' 
                 }
@@ -103,7 +103,7 @@ componentDidMount() {
             }
             }
             else if(icon === "cloudy"){
-                icon= cloudy,
+                icon= cloudy;
                 style={ 
                     backgroundColor: '#90A4AD'
                 } 
@@ -112,7 +112,7 @@ componentDidMount() {
                 } 
             }
             else if(icon === "partly-cloudy-day"){
-                icon= partlycloudyday,
+                icon= partlycloudyday;
                 style={
                     backgroundColor:  '#ECD23F'
                 }
@@ -121,7 +121,7 @@ componentDidMount() {
                 }
             }
             else if(icon === "partly-cloudy-night"){
-                icon= partlycloudynight,
+                icon= partlycloudynight;
                 style={
                     backgroundColor: '#80CBC4'
                 } 

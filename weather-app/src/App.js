@@ -3,10 +3,11 @@ import './App.css';
 import Saved from './Components/Saved';
 import SearchBar from './Components/SearchBar';
 import SearchResults from './Components/SearchResults';
-import DetailedView from './Components/DetailedView';
+import ShowPage from './Components/ShowPage';
 
 import axios from 'axios';
 import fab from './images/fab.png';
+import moment from 'moment';
 
 class App extends Component {
 	constructor(props) {
@@ -110,7 +111,7 @@ goToSearch() {
   }
 
   render() {
-
+    const current = moment().format("dddd, MMMM D");
 let content;
 
 		const mode = this.state.mode;
@@ -128,17 +129,17 @@ let content;
         </div>
         </div>
 		} else if (mode === "weatherPage") {
-			content = <DetailedView id={this.state.weatherId} linkToAll={this.linkToAll} />
+			content = <ShowPage id={this.state.weatherId} linkToAll={this.linkToAll} />
 		}
 
     return (
 
       <div className="App">
-
+      {this.state.mode === 'viewAll' && <h2>{current}</h2>}
 
       {content}
 
-        <img src={fab} className="add_logo" alt="add_logo" onClick={this.goToSearch}/>
+   {this.state.mode === 'viewAll' && <img src={fab} className="add_logo" alt="add_logo" onClick={this.goToSearch}/>}
       </div>
     );
   }
