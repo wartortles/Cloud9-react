@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import magnifyingGlass from '../images/magnifying-glass.png'
 
 class SearchBar extends Component {
 
@@ -37,7 +38,6 @@ class SearchBar extends Component {
     return (
       <div>
         <form className='search-form' onSubmit={this.onSubmit}>
-
           <input className='search-bar' type='text' placeholder='search for a location' value={this.state.inputValue} onChange={this.handleChange}/>
 
         </form>
