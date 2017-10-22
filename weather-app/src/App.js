@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-import Saved from './components/Saved';
-//import Create from './Components/Create';
-import SearchBar from './components/SearchBar';
-import SearchResults from './components/SearchResults';
-import ShowPage from './components/ShowPage';
+import Saved from './Components/Saved';
+import SearchBar from './Components/SearchBar';
+import SearchResults from './Components/SearchResults';
+import DetailedView from './Components/DetailedView';
+
 import axios from 'axios';
+import fab from './images/fab.png';
 
 class App extends Component {
 	constructor(props) {
@@ -23,6 +24,8 @@ class App extends Component {
     this.getResults = this.getResults.bind(this);
     this.saveLocation = this.saveLocation.bind(this);
     this.searchWithInput = this.searchWithInput.bind(this);
+    // this.delete = this.delete.bind(this);
+    this.onDelete = this.onDelete.bind(this);
 	};
 
 
@@ -46,6 +49,36 @@ addNew(event) {
 	})
 }
 
+//  delete(results){
+//     console.log(`DELETED:, ${results}`);
+//     axios.delete(`http://localhost:8080/weather/${results.id}`)
+//       .then(res => {
+//         this.setState(state => {
+//           state.results = state.results.filter(s => s.id !== results.id);
+//           state.mode = 'viewAll';
+          
+//           return prev;
+//         });
+//      })
+// }
+
+ onDelete(id) {
+        axios.delete('http://localhost:8080/weather')
+            .then((data) => {
+                let weatherData = this.state.weatherData.filter((post) => {
+                    return id !== post.id;
+                });
+
+                this.setState(state => {
+                    state.weatherData = weatherData;
+                    return state;
+                });
+            })
+            .catch((err) => {
+                console.error('err', err);
+            });
+    }
+
 goToSearch() {
 	this.setState({
 		mode:"searchAll"
@@ -66,13 +99,13 @@ goToSearch() {
   // save a location by clicking on it
   saveLocation(placeId, name) {
     axios.post(`http://localhost:8080/search/geocode/${placeId}`, { name: name }).then(response => {
-      this.setState({ results: [] });
+      this.setState({ mode: "viewAll", results: [] });
       })
   }
   // search for an save a location by text entry
   searchWithInput(input) {
     axios.get(`http://localhost:8080/search/single/${input}`).then(response => {
-      this.setState({ results: '' }, () => console.log(this.state.results));
+      this.setState({ mode: "viewAll", results: '' }, () => console.log(this.state.results));
       })
   }
 
@@ -84,23 +117,28 @@ let content;
 		if (mode === "viewAll") {
 			content = <Saved linkToPage={this.linkToPage} addNew={this.addNew} goToSearch={this.goToSearch} />;
 		} else if (mode === "searchAll") {
-			content = <SearchBar linkToAll={this.linkToAll} />
+			content = 
+      <div>
+      <div className='dimmed' onClick={this.linkToAll}>
+      <Saved className='dimmed' linkToPage={this.linkToPage} addNew={this.addNew} goToSearch={this.goToSearch} />
+      </div>
+      <div className='search-div'>
+        <SearchBar linkToAll={this.linkToAll} getResults={this.getResults} searchWithInput={this.searchWithInput} />
+        <SearchResults saveLocation={this.saveLocation} results={this.state.results}/>
+        </div>
+        </div>
 		} else if (mode === "weatherPage") {
-			content = <ShowPage id={this.state.weatherId} linkToAll={this.linkToAll} />
+			content = <DetailedView id={this.state.weatherId} linkToAll={this.linkToAll} />
 		}
 
     return (
 
       <div className="App">
-      <br />
-      <h1>WEATHER APP</h1>
+
 
       {content}
 
-
-         {/* <SearchBar getResults={this.getResults} searchWithInput={this.searchWithInput}/> <br/>
-        <SearchResults saveLocation={this.saveLocation} results={this.state.results}/> */}
-
+        <img src={fab} className="add_logo" alt="add_logo" onClick={this.goToSearch}/>
       </div>
     );
   }
