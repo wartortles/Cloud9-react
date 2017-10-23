@@ -127,17 +127,14 @@ class ShowPage extends Component {
                 const currentHr = Math.round(hr.temperature);
                 	const hourlyTime = moment.unix(hour).format("ha");
                 return (
-                    
-                        <div id="hour0" className="hours">  {hourlyTime} <br></br> {currentHr} </div>
-                     
-               	
+                        <div className="hours">  {hourlyTime} <br></br> {currentHr}° </div>
                     )
             }
             })
             
             const result = (
                     <div className ="current" data-id={response.data.location.id} onClick={this.onClick}>
-                    	<div className="showPage">
+                    	<div>
             
            <div className="row1">
                     <div className="row1col1">
@@ -158,45 +155,39 @@ class ShowPage extends Component {
 
                     <div className="row1col3">
                         <div id="day1" className="days"> 
-                        <p className="headWeekDays"> <b> {day1} </b> </p>
+                        <p className="headWeekDays">  {day1}  </p>
                         <img data-id={response.data.location.id} src={icon1} className="days_icon" />
                         <p data-id={response.data.location.id}> L {low1}° H {high1}° </p>
                         </div>
                         <div id="day2" className="days"> 
-                        <p className="headWeekDays" data-id={response.data.location.id}> <b> {day2} </b> </p>
+                        <p className="headWeekDays" data-id={response.data.location.id}>{day2} </p>
                         <img data-id={response.data.location.id} src={icon2} className="days_icon" />
                         <p data-id={response.data.location.id}> L {low2}° H {high2}° </p>
                         </div>
                         <div id="day3" className="days"> 
-                        <p className="headWeekDays" data-id={response.data.location.id}> <b> {day3} </b> </p>
+                        <p className="headWeekDays" data-id={response.data.location.id}>{day3}  </p>
                         <img data-id={response.data.location.id} src={icon3} className="days_icon" />
                         <p data-id={response.data.location.id}> L {low3}° H {high3}° </p>
                         </div>
                         <div id="day4" className="days"> 
-                        <p className="headWeekDays"> <b> {day4} </b> </p>
+                        <p className="headWeekDays">  {day4} </p>
                         <img data-id={response.data.location.id} src={icon4} className="days_icon" />
                         <p data-id={response.data.location.id}> L {low4}° H {high4}° </p>
                         </div>
                         <div id="day5" className="days"> 
-                        <p className="headWeekDays" data-id={response.data.location.id}> <b> {day5} </b> </p>
+                        <p className="headWeekDays" data-id={response.data.location.id}> {day5} </p>
                         <img data-id={response.data.location.id} src={icon5} className="days_icon" />
                         <p data-id={response.data.location.id}> L {low5}° H {high5}° </p>
                         </div>
                         <div id="day6" className="days"> 
-                        <p className="headWeekDays"> <b> {day6} </b> </p>
+                        <p className="headWeekDays"> {day6}  </p>
                         <img data-id={response.data.location.id} src={icon6} className="days_icon" />
                         <p data-id={response.data.location.id}> L {low6}° H {high6}° </p>
                         </div>
                     </div>
                 </div>
                     
-                    <div className="row2">
-                        <p className="hoursTitle"> NEXT 12 HOURS </p>
-                      </div>
-
-                    <div className="row3">
-                    
-                    </div>
+                
 
                 </div>
                </div>
@@ -219,14 +210,19 @@ render() {
         return(
             <div >
             	<div className="nav-bar-ShowPage">
-              <img src={close} className="bar_logo" alt="bar_logo" onClick={this.props.linkToAll}/>
+                    <img src={close} className="bar_logo" alt="bar_logo" onClick={this.props.linkToAll}/>
       				{this.state.name} </div>
 
-            {this.state.location}
-            {this.state.weekly}
-        <a className="button" href="/" onClick={this.linkToAll}>Back To All</a>
-       
-       		</div>
+                    {this.state.location}
+              
+                     <div className="row2">
+                    <p className="hoursTitle"> NEXT 12 HOURS </p>       
+                        {this.state.weekly}
+                    </div>
+
+                    <div className="row3"></div>
+                </div>
+       		
         )
     }
 }

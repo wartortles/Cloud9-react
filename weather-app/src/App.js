@@ -111,7 +111,7 @@ class App extends Component {
 
       <div className="App">
 
-      {this.state.mode === 'viewAll' && <h2>{current}</h2>}
+      {this.state.mode === 'viewAll' && <h2 className="date_title">{current}</h2>}
 
       {content}
 

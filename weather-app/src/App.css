@@ -197,14 +197,11 @@ li.flex-item input.delete {
   left: 0;
   top: 0;
 }
-.showPage{
-  background-color: #F77E23;
-  width: 100vw;
-  height: 100vh;
-}
+
 .row1{
   display: flex;
   justify-content: center;
+  background-color: #F77E23;
 }
 .row1col1{
   width: 200px;
@@ -213,8 +210,8 @@ li.flex-item input.delete {
    align-self: center;
 }
 .show_icon{
-  height: 120px;
-  width: 120px;
+  height: 80px;
+  width: 70px;
   margin: 20px;
   margin-right: 70px;
 }
@@ -233,8 +230,7 @@ li.flex-item input.delete {
 .days{
 width: 2px;
   height: 380px;
-  opacity: 0.2;
-  border: solid 1px #ffffff;
+  border: solid 1px rgba(255, 255, 255, 0.2);
   border-collapse: collapse;
   width: 150px;
   height: 150px;
@@ -243,10 +239,9 @@ width: 2px;
  }
  .days_icon{
   height: 50px;
+  color: rgba(255, 255, 255, 0.2);
  }
- p.days{
-  color: white;
- }
+
  #day1, #day2, #day3{
   border-top: none;
  }
@@ -257,6 +252,9 @@ width: 2px;
  border-top: none;
   border-right: none;
 }
+#day6 {
+  border-top: none;
+}
 .row2{
 background-color: #F6963F;
   height: 200px;
@@ -266,11 +264,14 @@ background-color: #F6963F;
   text-align: center;
   font-family: 'Roboto', sans-serif;
    color: white;
+   justify-content: center;
 }
 .hours{
-  display: flex;
-  align-items: center;
   width: 70px;
+   flex-direction: row;
+  flex-wrap: wrap;
+  line-height: 30px;
+
 }
 .hoursTitle{
   justify-content: center;
@@ -278,6 +279,7 @@ background-color: #F6963F;
   align-self: center;
   margin:0;
   width: 100%;
+  font-weight: 900;
 }
 .row3{
   width: 1300px;
@@ -349,3 +351,16 @@ background-color: #F6963F;
   font-family: 'Roboto', sans-serif;
   text-align: center;
 }
+
+.date_title{
+  position: fixed;
+  font-family: 'Roboto', sans-serif;
+  margin: 0 auto; 
+  text-align: center;
+  right: 45%;
+  color: white;
+  font-size: 16px;
+  margin-top: 18px;
+}
+
+
