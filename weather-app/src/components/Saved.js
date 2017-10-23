@@ -175,11 +175,11 @@ class Saved extends Component {
       <div>
         <div className="nav-bar-viewAll">
           <img src={bar} className="bar_logo" alt="bar_logo"/>
-          <div className="editButton">
+          {/* <div className="editButton">
             EDIT
-          </div>
+          </div> */}
         </div>
-				
+
         <ul className="flex-container">
           {this.state.locations.length > 0 && this.state.locations}
 
