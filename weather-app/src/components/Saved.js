@@ -179,7 +179,7 @@ class Saved extends Component {
             EDIT
           </div>
         </div>
-
+				
         <ul className="flex-container">
           {this.state.locations.length > 0 && this.state.locations}
 

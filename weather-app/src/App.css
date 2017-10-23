@@ -76,6 +76,7 @@ margin: 0 auto;
   height: 100%;
   text-align: center;
 }
+
 .flex-container {
   padding: 0;
   list-style: none;
@@ -88,7 +89,7 @@ margin: 0 auto;
 }
 .flex-item {
   cursor: pointer;
-  /*display: flex;*/
+  display: flex;
   width: 250px;
   height: 250px;
   border-radius: 4px;
@@ -96,7 +97,7 @@ margin: 0 auto;
   box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.5);
   margin: 10px;
   color: white;
-  /*justify-content: flex-start;*/
+  justify-content: flex-start;
 
 }
 .tileInfo{
@@ -354,7 +355,7 @@ background-color: #F6963F;
 }
 
 .date_title{
-  position: fixed;
+  position: absolute;
   font-family: 'Roboto', sans-serif;
   margin: 0 auto;
   text-align: center;
