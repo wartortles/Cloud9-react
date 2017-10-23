@@ -22,7 +22,7 @@ class ShowPage extends Component {
     super(props)
         this.state = {
             location: [],
-            name: '' 
+            name: ''
         }
         this.linkToSaved = this.linkToSaved.bind(this);
         this.getIcon = this.getIcon.bind(this);
@@ -34,7 +34,7 @@ class ShowPage extends Component {
             let barStyle;
 
             if (iconName === "clear-day") {
-                 iconName = clearday;  
+                 iconName = clearday;
             }
             else if(iconName === "clear-night"){
                 iconName = clearnight;
@@ -69,8 +69,8 @@ class ShowPage extends Component {
   componentDidMount() {
         axios.get(`http://localhost:8080/weather/${this.props.id}`)
         .then((response) => {
-            
-            console.log('got weather data, Data: ', response.data);
+
+            //console.log('got weather data, Data: ', response.data);
             const icon = this.getIcon(response.data.weather.currently.icon);
             const  temp = Math.round(response.data.weather.currently.temperature);
             const  high = Math.round(response.data.weather.daily.data[0].temperatureHigh);
@@ -79,7 +79,7 @@ class ShowPage extends Component {
             const summary = response.data.weather.hourly.summary;
             const time = response.data.weather.daily.data[0].time;
             	const day = moment.unix(time).format("ddd")
-            
+
             const icon1 = this.getIcon(response.data.weather.daily.data[1].icon);
             const high1 = Math.round(response.data.weather.daily.data[1].temperatureHigh);
             const low1 = Math.round(response.data.weather.daily.data[1].temperatureLow);
@@ -121,24 +121,24 @@ class ShowPage extends Component {
 
 
             const hourlyData = response.data.weather.hourly.data.map((hr, index) => {
-                console.log(hr)
+                //console.log(hr)
                 if (index < 12) {
                 const hour = hr.time;
                 const currentHr = Math.round(hr.temperature);
                 	const hourlyTime = moment.unix(hour).format("ha");
                 return (
-                    
+
                         <div id="hour0" className="hours">  {hourlyTime} <br></br> {currentHr} </div>
-                     
-               	
+
+
                     )
             }
             })
-            
+
             const result = (
                     <div className ="current" data-id={response.data.location.id} onClick={this.onClick}>
                     	<div className="showPage">
-            
+
            <div className="row1">
                     <div className="row1col1">
                          <img data-id = {response.data.location.id} src={icon} className="show_icon" alt="show_icon" />
@@ -148,7 +148,7 @@ class ShowPage extends Component {
                         <h4 data-id ={response.data.location.id}> TODAY </h4>
                         <h1 data-id = {response.data.location.id}>{temp} </h1>
                         <h4 data-id = {response.data.location.id}> L {low}° H {high}° </h4>
-                        <p data-id = {response.data.location.id}> NEXT HOUR <br></br> 
+                        <p data-id = {response.data.location.id}> NEXT HOUR <br></br>
                         {summary} </p>
 
 
@@ -157,62 +157,62 @@ class ShowPage extends Component {
                     </div>
 
                     <div className="row1col3">
-                        <div id="day1" className="days"> 
+                        <div id="day1" className="days">
                         <p className="headWeekDays"> <b> {day1} </b> </p>
                         <img data-id={response.data.location.id} src={icon1} className="days_icon" />
                         <p data-id={response.data.location.id}> L {low1}° H {high1}° </p>
                         </div>
-                        <div id="day2" className="days"> 
+                        <div id="day2" className="days">
                         <p className="headWeekDays" data-id={response.data.location.id}> <b> {day2} </b> </p>
                         <img data-id={response.data.location.id} src={icon2} className="days_icon" />
                         <p data-id={response.data.location.id}> L {low2}° H {high2}° </p>
                         </div>
-                        <div id="day3" className="days"> 
+                        <div id="day3" className="days">
                         <p className="headWeekDays" data-id={response.data.location.id}> <b> {day3} </b> </p>
                         <img data-id={response.data.location.id} src={icon3} className="days_icon" />
                         <p data-id={response.data.location.id}> L {low3}° H {high3}° </p>
                         </div>
-                        <div id="day4" className="days"> 
+                        <div id="day4" className="days">
                         <p className="headWeekDays"> <b> {day4} </b> </p>
                         <img data-id={response.data.location.id} src={icon4} className="days_icon" />
                         <p data-id={response.data.location.id}> L {low4}° H {high4}° </p>
                         </div>
-                        <div id="day5" className="days"> 
+                        <div id="day5" className="days">
                         <p className="headWeekDays" data-id={response.data.location.id}> <b> {day5} </b> </p>
                         <img data-id={response.data.location.id} src={icon5} className="days_icon" />
                         <p data-id={response.data.location.id}> L {low5}° H {high5}° </p>
                         </div>
-                        <div id="day6" className="days"> 
+                        <div id="day6" className="days">
                         <p className="headWeekDays"> <b> {day6} </b> </p>
                         <img data-id={response.data.location.id} src={icon6} className="days_icon" />
                         <p data-id={response.data.location.id}> L {low6}° H {high6}° </p>
                         </div>
                     </div>
                 </div>
-                    
+
                     <div className="row2">
                         <p className="hoursTitle"> NEXT 12 HOURS </p>
                       </div>
 
                     <div className="row3">
-                    
+
                     </div>
 
                 </div>
                </div>
              )
-                  
+
         this.setState({
         location: result,
         weekly: hourlyData
-        
+
     })
         })
     }
 
 linkToSaved(event) {
         event.preventDefault();
-        console.log('props: ', this.props);
+        //console.log('props: ', this.props);
         this.props.linkToAll();
     }
 render() {
@@ -225,7 +225,7 @@ render() {
             {this.state.location}
             {this.state.weekly}
         <a className="button" href="/" onClick={this.linkToAll}>Back To All</a>
-       
+
        		</div>
         )
     }

@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import './App.css';
-import Saved from './Components/Saved';
-import SearchBar from './Components/SearchBar';
-import SearchResults from './Components/SearchResults';
-import ShowPage from './Components/ShowPage';
+import Saved from './components/Saved';
+import SearchBar from './components/SearchBar';
+import SearchResults from './components/SearchResults';
+import ShowPage from './components/ShowPage';
 
 import axios from 'axios';
 import fab from './images/fab.png';
@@ -90,12 +90,12 @@ class App extends Component {
 
     const mode = this.state.mode;
     if (mode === "viewAll") {
-      content = <Saved delete={this.delete} linkToPage={this.linkToPage} addNew={this.addNew} goToSearch={this.goToSearch}/>;
+      content = <Saved current={current} delete={this.delete} linkToPage={this.linkToPage} addNew={this.addNew} goToSearch={this.goToSearch}/>;
     } else if (mode === "searchAll") {
       content =
       <div>
         <div className='dimmed' onClick={this.linkToAll}>
-          <Saved delete={this.delete} className='dimmed' linkToPage={this.linkToPage} addNew={this.addNew} goToSearch={this.goToSearch}/>
+          <Saved current={current} delete={this.delete} className='dimmed' linkToPage={this.linkToPage} addNew={this.addNew} goToSearch={this.goToSearch}/>
         </div>
         <div className='search-div'>
           <SearchBar linkToAll={this.linkToAll} getResults={this.getResults} searchWithInput={this.searchWithInput}/>
@@ -110,8 +110,6 @@ class App extends Component {
     return (
 
       <div className="App">
-
-      {this.state.mode === 'viewAll' && <h2>{current}</h2>}
 
       {content}
 

@@ -175,6 +175,7 @@ class Saved extends Component {
       <div>
         <div className="nav-bar-viewAll">
           <img src={bar} className="bar_logo" alt="bar_logo"/>
+					<h4>{this.props.current}</h4>
           <div className="editButton">
             EDIT
           </div>
