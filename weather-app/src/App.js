@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import './App.css';
-import Saved from './components/Saved';
-import SearchBar from './components/SearchBar';
-import SearchResults from './components/SearchResults';
-import DetailedView from './components/DetailedView';
+import Saved from './Components/Saved';
+import SearchBar from './Components/SearchBar';
+import SearchResults from './Components/SearchResults';
+import ShowPage from './Components/ShowPage';
 
 import axios from 'axios';
 import fab from './images/fab.png';
+import moment from 'moment';
 
 class App extends Component {
   constructor(props) {
@@ -84,7 +85,8 @@ class App extends Component {
 
   render() {
 
-    let content;
+    const current = moment().format("dddd, MMMM D");
+  let content;
 
     const mode = this.state.mode;
     if (mode === "viewAll") {
@@ -99,19 +101,21 @@ class App extends Component {
           <SearchBar linkToAll={this.linkToAll} getResults={this.getResults} searchWithInput={this.searchWithInput}/>
           <SearchResults saveLocation={this.saveLocation} results={this.state.results}/>
         </div>
-      </div>
-    }
-    // else if (mode === "weatherPage") {
-    //   content = <ShowPage id={this.state.weatherId} linkToAll={this.linkToAll}/>
-    // }
+        </div>
+
+		} else if (mode === "weatherPage") {
+			content = <ShowPage id={this.state.weatherId} linkToAll={this.linkToAll} />
+		}
 
     return (
 
       <div className="App">
 
-        {content}
+      {this.state.mode === 'viewAll' && <h2>{current}</h2>}
 
-        <img src={fab} className="add_logo" alt="add_logo" onClick={this.goToSearch}/>
+      {content}
+
+      {this.state.mode === 'viewAll' && <img src={fab} className="add_logo" alt="add_logo" onClick={this.goToSearch}/>}
       </div>
     );
   }

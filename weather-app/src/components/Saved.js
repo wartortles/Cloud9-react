@@ -155,6 +155,7 @@ class Saved extends Component {
       }, () => {
         console.log(this.state.locations)
       })
+
     });
   }
 
