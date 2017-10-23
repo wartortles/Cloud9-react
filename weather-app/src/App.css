@@ -1,26 +1,29 @@
-html{
-    background-color: #36474f;
+html {
+  background-color: #36474f;
 }
 
 body {
   margin: 0;
 }
 
-.App{
-margin: 0 auto;
+.App {
+  margin: 0 auto;
 }
-.nav-bar{
+
+.nav-bar {
   width: 100%;
   height: 60px;
   background-color: #161f24;
 }
-.main{
+
+.main {
   background-color: #36474f;
   height: 100vh;
   width: 100vw;
   text-align: center;
 }
-.introText{
+
+.introText {
   width: 361px;
   height: 80px;
   font-family: 'Roboto', sans-serif;
@@ -30,16 +33,19 @@ margin: 0 auto;
   color: #7dcbc4;
   margin: 0 auto;
 }
-.bar_logo{
-  margin:22px;
+
+.bar_logo {
+  margin: 22px;
   cursor: pointer;
 }
-.snowman_logo{
+
+.snowman_logo {
   margin-top: 100px;
   height: 190px;
   width: 135px;
 }
-.add_logo{
+
+.add_logo {
   width: 55px;
   height: 55px;
   float: right;
@@ -48,15 +54,19 @@ margin: 0 auto;
   bottom: 50px;
   position: fixed;
   cursor: pointer;
-  }
+}
+
+
 /*view all page styling*/
-.nav-bar-viewAll{
+
+.nav-bar-viewAll {
   width: 100%;
   height: 60px;
   background-color: #161f24;
   color: white;
 }
-.editButton{
+
+.editButton {
   width: 109px;
   height: 40px;
   border-radius: 4px;
@@ -70,7 +80,8 @@ margin: 0 auto;
   color: #b0bec5;
   line-height: 40px;
 }
-.viewAll{
+
+.viewAll {
   background-color: #36474f;
   width: 100%;
   height: 100%;
@@ -85,11 +96,10 @@ margin: 0 auto;
   justify-content: flex-start;
   margin: 0 auto;
   max-width: 900px;
-
 }
+
 .flex-item {
   cursor: pointer;
-  display: flex;
   width: 250px;
   height: 250px;
   border-radius: 4px;
@@ -97,54 +107,57 @@ margin: 0 auto;
   box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.5);
   margin: 10px;
   color: white;
-  justify-content: flex-start;
-
 }
-.tileInfo{
+
+.tileInfo {
   position: relative;
   width: 100%;
   height: 100%;
   margin: 0 auto;
   text-align: center;
-
 }
-.titleViewAll{
+
+.titleViewAll {
   text-align: center;
   margin: 0;
   top: 0;
   width: 100%;
-  height:65%;
+  height: 65%;
   justify-content: flex-start;
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
   font-weight: bold;
   padding-top: 13px;
+}
 
+.iconViewAll {
+  margin: 0 auto;
+  height: 10px;
+  position: absolute;
+  width: 100%;
+  top: 60px;
 }
-.iconViewAll{
-margin: 0 auto;
-height: 10px;
-position: absolute;
-width: 100%;
-top: 60px;
-}
-img.viewAll_logo{
+
+img.viewAll_logo {
   height: 30px;
 }
-img.addOne_logo{
+
+img.addOne_logo {
   height: 50px;
   margin-top: 60px;
   cursor: pointer;
 }
-.tempViewAll{
-top: 100px;
-width: 100%;
-height: 20px;
-position: absolute;
+
+.tempViewAll {
+  top: 100px;
+  width: 100%;
+  height: 20px;
+  position: absolute;
   font-family: Roboto;
   font-size: 40px;
 }
-.bar_tile{
+
+.bar_tile {
   background-color: rgba(22, 31, 36, 0.1);
   width: 100%;
   height: 50px;
@@ -155,13 +168,15 @@ position: absolute;
   border-bottom-right-radius: 4px;
   border-bottom-left-radius: 4px;
 }
-li#extraTile.flex-item{
+
+li#extraTile.flex-item {
   background-color: #36474f;
   border: dashed 1px #77909d;
   text-align: center;
   box-shadow: none;
 }
-div.extraTile{
+
+div.extraTile {
   font-family: Roboto;
   font-size: 20px;
   letter-spacing: 2px;
@@ -169,124 +184,144 @@ div.extraTile{
   margin: 0 auto;
   width: 150px;
 }
+
+
 /*delete button on edit*/
+
 li.flex-item:hover input {
-    display: block;
+  display: block;
 }
+
 li.flex-item input {
-    position:absolute;
-    display:none;
+  position: absolute;
+  display: none;
 }
+
 li.flex-item input.delete {
-    top:-5%;
-    left:92%;
-    height: 35px;
-    width: 35px;
+  top: -5%;
+  left: 92%;
+  height: 35px;
+  width: 35px;
 }
+
+
 /*show one page styling*/
-.nav-bar-ShowPage{
+
+.nav-bar-ShowPage {
   width: 100%;
   height: 40px;
   background-color: #F36420;
   color: white;
   text-align: center;
   font-family: 'Roboto';
-  font-weight: 300px ;
+  font-weight: 300px;
   padding-top: 20px;
   position: relative;
 }
-.bar_logo{
+
+.bar_logo {
   position: absolute;
   left: 0;
   top: 0;
 }
 
-.row1{
+.row1 {
   display: flex;
   justify-content: center;
   background-color: #F77E23;
 }
-.row1col1{
-  width: 200px;
 
-   text-align: center;
-   align-self: center;
+.row1col1 {
+  width: 200px;
+  text-align: center;
+  align-self: center;
 }
-.show_icon{
+
+.show_icon {
   height: 70px;
   margin: 20px;
   margin-right: 70px;
 }
-.row1col2{
-   width: 200px;
-   font-family: 'Roboto', sans-serif;
-   color: white;
+
+.row1col2 {
+  width: 200px;
+  font-family: 'Roboto', sans-serif;
+  color: white;
 }
-.row1col3{
+
+.row1col3 {
   display: flex;
   flex-wrap: wrap;
   width: 460px;
   margin: 10px;
- font-family: 'Roboto', sans-serif;
-  }
-.days{
-width: 2px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.days {
+  width: 2px;
   height: 380px;
   border: solid 1px rgba(255, 255, 255, 0.2);
   border-collapse: collapse;
   width: 150px;
   height: 150px;
-   color: white;
-   text-align: center;
- }
- .days_icon{
+  color: white;
+  text-align: center;
+}
+
+.days_icon {
   height: 50px;
   color: rgba(255, 255, 255, 0.2);
- }
+}
 
- #day1, #day2, #day3{
+#day1, #day2, #day3 {
   border-top: none;
- }
+}
+
 #day4, #day5, #day6 {
   border-bottom: none;
- }
-#day1, #day2, #day4, #day5{
- border-top: none;
+}
+
+#day1, #day2, #day4, #day5 {
+  border-top: none;
   border-right: none;
 }
+
 #day6 {
   border-top: none;
 }
-.row2{
-background-color: #F6963F;
+
+.row2 {
+  background-color: #F6963F;
   height: 200px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   text-align: center;
   font-family: 'Roboto', sans-serif;
-   color: white;
-   justify-content: center;
+  color: white;
+  justify-content: center;
 }
-.hours{
+
+.hours {
   width: 70px;
-   flex-direction: row;
+  flex-direction: row;
   flex-wrap: wrap;
   line-height: 30px;
-
 }
-.hoursTitle{
+
+.hoursTitle {
   justify-content: center;
   display: flex;
   align-self: center;
-  margin:0;
+  margin: 0;
   width: 100%;
   font-weight: 900;
 }
-.row3{
+
+.row3 {
   width: 100%;
   height: 232px;
-   background-color: #F77E23;
+  background-color: #F77E23;
 }
 
 .dimmed {
@@ -299,7 +334,6 @@ background-color: #F6963F;
   position: fixed;
   font-family: 'Roboto', sans-serif;
   box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.5);
-
 }
 
 .search-bar {
@@ -319,9 +353,8 @@ background-color: #F6963F;
 }
 
 .search-form {
-  padding: 15px ;
+  padding: 15px;
   background-color: #19a69a;
-
 }
 
 ::-webkit-input-placeholder {
@@ -354,7 +387,7 @@ background-color: #F6963F;
   text-align: center;
 }
 
-.date_title{
+.date_title {
   position: absolute;
   font-family: 'Roboto', sans-serif;
   margin: 0 auto;
