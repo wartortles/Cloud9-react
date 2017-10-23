@@ -111,6 +111,8 @@ class App extends Component {
 
       <div className="App">
 
+      {this.state.mode === 'viewAll' && <h2 className="date_title">{current}</h2>}
+
       {content}
 
       {this.state.mode === 'viewAll' && <img src={fab} className="add_logo" alt="add_logo" onClick={this.goToSearch}/>}
